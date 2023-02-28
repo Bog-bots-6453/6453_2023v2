@@ -17,8 +17,10 @@ public class Defaltdrivecammand extends CommandBase {
   private final DriveTrain m_DriveTrain;
   private final DoubleSupplier m_LeftStick;
   private final DoubleSupplier m_RightStick;
+  
   /** Creates a new Defaltdrivecammand. */
   public Defaltdrivecammand(DriveTrain m_DriveTrain,DoubleSupplier leftspeed, DoubleSupplier rightspeed) {
+
 this.m_LeftStick = leftspeed;
 this.m_RightStick = rightspeed;
 this.m_DriveTrain = m_DriveTrain;

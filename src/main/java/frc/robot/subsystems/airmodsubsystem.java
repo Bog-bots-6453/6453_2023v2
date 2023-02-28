@@ -29,23 +29,6 @@ private final DoubleSolenoid vertical;
 
 
 
-
-
-
-
-
- 
-
-    
-
-
-
-
-
-
-
-
-
   }
   
 

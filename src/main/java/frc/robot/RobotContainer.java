@@ -50,7 +50,7 @@ private final Intakesubsystem m_Intake = new Intakesubsystem();
 
 Drive.setDefaultCommand(new Defaltdrivecammand(
   Drive, 
-  () -> Leftstick.getY(),
+  () -> Leftstick.getY()*-1,
   () -> Rightstick.getY()));
 
 Arm.Arm_Speed(Rightstick2.getY());
