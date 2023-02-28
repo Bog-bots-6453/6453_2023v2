@@ -26,12 +26,17 @@ private final DoubleSolenoid vertical;
   claw = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Clawn_Open,Constants.Clawn_Close);
   pivot = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Pivot_Open,Constants.Pivot_Close);
   vertical = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Vertical_up,Constants.Vertical_down);
-    
-    
-    
 
 
 
+
+
+
+
+
+ 
+
+    
 
 
 

@@ -27,7 +27,7 @@ public final static double Intake_speed_out = -1.0;
 
 public final static int Spark_Arm_1_ID = 50;
 public final static int Spark_Arm_2_ID = 51;
-public final static double Arm_Speed_Max = 1;
+public final static double Arm_Speed_Max = .8;
 
 public final static int PCM_ID = 1;
 
