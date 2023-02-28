@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import frc.robot.subsystems.airmodsubsystem;
 import frc.robot.commands.Armdrive;
+import frc.robot.commands.Defaltdrivecammand;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intakesubsystem;
@@ -47,7 +48,10 @@ private final Intakesubsystem m_Intake = new Intakesubsystem();
 
  air.start();
 
-Drive.drive(Leftstick.getRawAxis(0), Rightstick.getRawAxis(0));
+Drive.setDefaultCommand(new Defaltdrivecammand(
+  Drive, 
+  () -> Leftstick.getY(),
+  () -> Rightstick.getY()));
 
 Arm.Arm_Speed(Rightstick2.getY());
 

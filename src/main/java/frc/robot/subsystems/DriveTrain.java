@@ -47,6 +47,9 @@ drive.setSafetyEnabled(false);
     drive.tankDrive(left, right);
 }
 
+public void stop(){
+  drive.tankDrive(0,  0);
+}
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

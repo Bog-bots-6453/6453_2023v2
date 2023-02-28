@@ -4,17 +4,23 @@
 
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.RobotContainer;
 
 
 
 public class Defaltdrivecammand extends CommandBase {
   private final DriveTrain m_DriveTrain;
+  private final DoubleSupplier m_LeftStick;
+  private final DoubleSupplier m_RightStick;
   /** Creates a new Defaltdrivecammand. */
-  public Defaltdrivecammand(DriveTrain m_DriveTrain,double leftspeed, double rightspeed) {
-
+  public Defaltdrivecammand(DriveTrain m_DriveTrain,DoubleSupplier leftspeed, DoubleSupplier rightspeed) {
+this.m_LeftStick = leftspeed;
+this.m_RightStick = rightspeed;
 this.m_DriveTrain = m_DriveTrain;
 addRequirements(m_DriveTrain);
 
@@ -31,7 +37,7 @@ addRequirements(m_DriveTrain);
 
 
 
-m_DriveTrain.drive(m_left.getAsDouble);
+m_DriveTrain.drive(m_LeftStick.getAsDouble() ,m_RightStick.getAsDouble());
 
 
 
@@ -42,7 +48,7 @@ m_DriveTrain.drive(m_left.getAsDouble);
   public void end(boolean interrupted) {
 
 
-DriveTrain.drive_speed(speed:0);
+m_DriveTrain.drive(0, 0);
 
   }
 
