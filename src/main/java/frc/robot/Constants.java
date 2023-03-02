@@ -31,14 +31,15 @@ public final static double Arm_Speed_Max = .8;
 
 public final static int PCM_ID = 1;
 
-public final static int Pivot_Open = 1; 
-public final static int Pivot_Close = 2; 
+public final static int Pivot_Open = 0; 
+public final static int Pivot_Close = 1; 
 
-public final static int Vertical_up = 3; 
-public final static int Vertical_down = 4; 
+public final static int Vertical_up = 2; 
+public final static int Vertical_down = 3; 
 
-public final static int Clawn_Open = 5; 
-public final static int Clawn_Close = 6; 
+public final static int Clawn_Open = 4; 
+public final static int Clawn_Close = 5; 
 
-
+public final static int armtoob_up = 6; 
+public final static int armtoob_down = 7; 
 }

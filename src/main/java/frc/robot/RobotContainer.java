@@ -69,23 +69,23 @@ Arm.Arm_Speed(Rightstick2.getY());
   private void configureButtonBindings() {
 
 
-new JoystickButton(Leftstick, 5)
+new JoystickButton(Rightstick2, 2)
 .onTrue(new InstantCommand(
   () -> air.Clawn_Close()
 ));
 
-new JoystickButton(Leftstick, 7)
+new JoystickButton(Rightstick2,1)
 .onTrue(new InstantCommand(
   () -> air.Clawn_Open()
 ));
 
 
-new JoystickButton(Rightstick2, 2)
+new JoystickButton(Leftstick, 2)
 .onTrue(new InstantCommand(
   () -> air.pivot_open()
 ));
 
-new JoystickButton(Rightstick2, 1)
+new JoystickButton(Leftstick, 1)
 .onTrue(new InstantCommand(
   () -> air.pivot_close()
 ));
@@ -112,6 +112,23 @@ new JoystickButton(Rightstick, 1)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_out()
 ));
+
+
+new JoystickButton(Rightstick2, 7)
+.onTrue(new InstantCommand(
+  () -> air.armtoob_up()
+));
+
+new JoystickButton(Rightstick2, 6)
+.onTrue(new InstantCommand(
+  () -> air.armtoob_down()
+));
+
+
+
+
+
+
 
 
 
