@@ -54,7 +54,8 @@ Drive.setDefaultCommand(new Defaltdrivecammand(
   () -> Leftstick.getY()*-1,
   () -> Rightstick.getY()));
 
-Arm.Arm_Speed(Rightstick2.getY());
+Arm.setDefaultCommand(new Armdrive( Arm,
+() -> Rightstick2.getY()));
 
 
     // Configure the button bindings
@@ -133,23 +134,7 @@ new JoystickButton(Rightstick2, 8)
 
 
 
-
-
-new Trigger(() ->
-     {if(Rightstick2.getY()>0)
-      return true;
-      else
-      {
-        return false;
-      }
-     
-     }
-     ).whileTrue(new Armdrive(Arm));
-
-
-
   }
-
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *

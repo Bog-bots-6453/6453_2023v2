@@ -4,6 +4,8 @@
 
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.ArmSubsystem;
@@ -12,9 +14,11 @@ import frc.robot.subsystems.ArmSubsystem;
 
 public class Armdrive extends CommandBase {
   private final ArmSubsystem m_ArmSubsystem;
+  private final DoubleSupplier m_Speed_Axis;
   /** Creates a new Armdrive. */
-  public Armdrive(ArmSubsystem m_ArmSubsystem) {
+  public Armdrive(ArmSubsystem m_ArmSubsystem , DoubleSupplier Speed_Axis) {
 
+    this.m_Speed_Axis = Speed_Axis;
 this.m_ArmSubsystem = m_ArmSubsystem;
 addRequirements(m_ArmSubsystem);
 
@@ -31,7 +35,7 @@ addRequirements(m_ArmSubsystem);
 
     //drIve.tankdrive(dubble leftspeed,dubble rightspeed); name it Defaltdrivecammand
     
-m_ArmSubsystem.Arm_Speed(Constants.Arm_Speed_Max*-1);
+m_ArmSubsystem.Arm_Speed(m_Speed_Axis.getAsDouble()*-1);
 
   }
 
