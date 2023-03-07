@@ -3,28 +3,36 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import com.ctre.phoenix.sensors.CANCoder;
+import com.ctre.phoenixpro.hardware.CANcoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import com.revrobotics.RelativeEncoder;
+
 
 public class ArmSubsystem extends SubsystemBase {
   /** Creates a new ArmSubsystem. */
  
  private final CANSparkMax Arm_Motor_1;
  private final CANSparkMax Arm_Motor_2;
+ private final CANCoder Arm_Encoder_1;
  
  
 
   public ArmSubsystem() {
 
+
   Arm_Motor_1 = new CANSparkMax(Constants.Spark_Arm_1_ID,MotorType.kBrushless);
   Arm_Motor_2 = new CANSparkMax(Constants.Spark_Arm_2_ID,MotorType.kBrushless);
+  Arm_Encoder_1 = new CANCoder(Constants.Spark_Arm_1_ID);    
+  Arm_Encoder_1.setPosition(0);
+  };
 
 
 
-
-  }
+  
 
   @Override
   public void periodic() {
@@ -45,10 +53,12 @@ public void Arm_Speed(double speed){
   Arm_Motor_2.set(speed*Constants.Arm_Speed_Max);
 }
 
+public double getAbsoluteEncoderCounts() {
+    return Arm_Encoder_1.getPosition();
+}
 
-
-
-
-
+public void resetEncoder(){
+  Arm_Encoder_1.setPosition(0);
+}
 
 }
