@@ -92,34 +92,34 @@ new JoystickButton(Leftstick, 1)
 
 
 
-new JoystickButton(Rightstick, 2)
+new JoystickButton(Rightstick2, 12)
 .onTrue(new InstantCommand(
   () -> air.vertical_up()
 ));
 
-new JoystickButton(Rightstick, 1)
+new JoystickButton(Rightstick2, 11)
 .onTrue(new InstantCommand(
   () -> air.Vertical_down()
 ));
 
 
-new JoystickButton(Leftstick, 2)
+new JoystickButton(Leftstick, 3)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_In()
 ));
 
-new JoystickButton(Rightstick, 1)
+new JoystickButton(Rightstick, 4)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_out()
 ));
 
 
-new JoystickButton(Rightstick2, 7)
+new JoystickButton(Rightstick, 11)
 .onTrue(new InstantCommand(
   () -> air.armtoob_up()
 ));
 
-new JoystickButton(Rightstick2, 6)
+new JoystickButton(Rightstick, 12)
 .onTrue(new InstantCommand(
   () -> air.armtoob_down()
 ));

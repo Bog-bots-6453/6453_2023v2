@@ -18,6 +18,7 @@ private final Compressor airCompressor;
 private final DoubleSolenoid claw;
 private final DoubleSolenoid pivot;
 private final DoubleSolenoid vertical;
+
 private final DoubleSolenoid armtoob;
 
   public airmodsubsystem() {
@@ -26,11 +27,8 @@ private final DoubleSolenoid armtoob;
   claw = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Clawn_Open,Constants.Clawn_Close);
   pivot = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Pivot_Open,Constants.Pivot_Close);
   vertical = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Vertical_up,Constants.Vertical_down);
- armtoob = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.Vertical_up,Constants.Vertical_down);
 
-
-
-  }
+armtoob = new DoubleSolenoid(Constants.PCM_ID,PneumaticsModuleType.CTREPCM,Constants.armtoob_up,Constants.armtoob_down);  }
   
 
 
@@ -62,7 +60,7 @@ public void vertical_up(){
 public void Vertical_down(){
   vertical.set(Value.kReverse);
 }
-
+ 
 public void armtoob_up(){
   armtoob.set(Value.kForward);
 }
