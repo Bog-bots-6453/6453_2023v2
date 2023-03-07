@@ -41,5 +41,9 @@ public final static int Clawn_Open = 4;
 public final static int Clawn_Close = 5; 
 
 public final static int armtoob_up = 6; 
-public final static int armtoob_down = 7; 
+public final static int armtoob_down = 7;
+
+
+public static final double Arm_PID_Speed = .8;
+public static final double Arm_PID_SETPOINT1 = 0; 
 }

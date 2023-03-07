@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 // import frc.robot.subsystems.ArmSubsystem;
 
 import frc.robot.subsystems.airmodsubsystem;
+import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
 import frc.robot.commands.Defaltdrivecammand;
 import frc.robot.subsystems.ArmSubsystem;
@@ -126,7 +127,8 @@ new JoystickButton(Rightstick, 12)
 
 
 
-
+new JoystickButton(Rightstick2, 8)
+.onTrue(new Arm_PIDCommand(Arm, Constants.Arm_PID_SETPOINT1));
 
 
 
