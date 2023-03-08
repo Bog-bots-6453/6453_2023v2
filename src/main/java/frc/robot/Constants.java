@@ -45,5 +45,6 @@ public final static int armtoob_down = 7;
 
 
 public static final double Arm_PID_Speed = .8;
-public static final double Arm_PID_SETPOINT1 = 0; 
+public static final double Arm_PID_SETPOINT1 = -3000;
+public static final double Arm_PID_SETPOINT2 = -5000; 
 }

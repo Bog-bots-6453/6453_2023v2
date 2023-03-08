@@ -128,10 +128,22 @@ new JoystickButton(Rightstick, 12)
 
 
 
-new JoystickButton(Rightstick2, 8)
+new JoystickButton(Rightstick2, 5)
 .onTrue(new Arm_PIDCommand(Arm, Constants.Arm_PID_SETPOINT1));
 
+new JoystickButton(Rightstick2, 6)
+.onTrue(new Arm_PIDCommand(Arm, Constants.Arm_PID_SETPOINT2));
 
+
+new Trigger(()->
+{if(Math.abs(Rightstick2.getY())>.05)
+return true;
+else{return false;}
+
+
+}
+
+).onTrue(new Armdrive(Arm, ()->Rightstick2.getY()));
 
 
   }
