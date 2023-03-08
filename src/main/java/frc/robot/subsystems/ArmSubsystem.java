@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxRelativeEncoder;
+import com.revrobotics.CANSparkMax.SoftLimitDirection;
 
 
 public class ArmSubsystem extends SubsystemBase {
@@ -30,6 +31,13 @@ public class ArmSubsystem extends SubsystemBase {
 
   Arm_Motor_1 = new CANSparkMax(Constants.Spark_Arm_1_ID,MotorType.kBrushless);
   Arm_Motor_2 = new CANSparkMax(Constants.Spark_Arm_2_ID,MotorType.kBrushless);
+
+  Arm_Motor_1.enableSoftLimit(SoftLimitDirection.kForward, true);
+  Arm_Motor_1.enableSoftLimit(SoftLimitDirection.kReverse, true);
+
+  Arm_Motor_1.setSoftLimit(SoftLimitDirection.kReverse, -2);
+  Arm_Motor_1.setSoftLimit(SoftLimitDirection.kForward, 0);
+
   Arm_Encoder_1 = Arm_Motor_1.getEncoder();  
   Arm_Encoder_1.setPosition(0);
   };
