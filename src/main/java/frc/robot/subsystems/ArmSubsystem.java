@@ -37,7 +37,7 @@ public class ArmSubsystem extends SubsystemBase {
 
   
 
-  Arm_Motor_1.setSoftLimit(SoftLimitDirection.kReverse, -2);
+  Arm_Motor_1.setSoftLimit(SoftLimitDirection.kReverse, -5500);
   Arm_Motor_1.setSoftLimit(SoftLimitDirection.kForward, 0);
 
   Arm_Encoder_1 = Arm_Motor_1.getEncoder(); 
