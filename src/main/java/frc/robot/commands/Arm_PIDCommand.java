@@ -24,7 +24,7 @@ public class Arm_PIDCommand extends CommandBase {
   /** Creates a new Arm_PIDCommand. */
   public Arm_PIDCommand(ArmSubsystem m_ArmSubsystem, double setPoint) {
     this.m_ArmSubsystem = m_ArmSubsystem;
-    this.m_ArmPIDController = new PIDController(0.00000004, .000000001, 0.0);
+    this.m_ArmPIDController = new PIDController(0.004, .000000000, 0.0);
     this.setPoint = setPoint;
    addRequirements(m_ArmSubsystem);
    
