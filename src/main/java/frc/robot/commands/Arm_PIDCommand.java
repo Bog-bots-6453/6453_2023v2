@@ -51,6 +51,7 @@ public class Arm_PIDCommand extends CommandBase {
     speed = (speed < -1 ) ? -1 : speed; 
     m_ArmSubsystem.Arm_Speed(speed* Constants.Arm_PID_Speed);
     SmartDashboard.putNumber("Arm output: ", speed);
+    
   }
   // Returns true when the command should end.
   @Override

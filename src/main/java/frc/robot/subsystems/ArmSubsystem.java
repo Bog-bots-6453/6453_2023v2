@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxRelativeEncoder;
 
 
 public class ArmSubsystem extends SubsystemBase {
@@ -20,7 +21,7 @@ public class ArmSubsystem extends SubsystemBase {
  
  private final CANSparkMax Arm_Motor_1;
  private final CANSparkMax Arm_Motor_2;
- private final CANCoder Arm_Encoder_1;
+ private final RelativeEncoder Arm_Encoder_1;
  
  
 
@@ -29,7 +30,7 @@ public class ArmSubsystem extends SubsystemBase {
 
   Arm_Motor_1 = new CANSparkMax(Constants.Spark_Arm_1_ID,MotorType.kBrushless);
   Arm_Motor_2 = new CANSparkMax(Constants.Spark_Arm_2_ID,MotorType.kBrushless);
-  Arm_Encoder_1 = new CANCoder(Constants.Spark_Arm_1_ID);    
+  Arm_Encoder_1 = Arm_Motor_1.getEncoder();  
   Arm_Encoder_1.setPosition(0);
   };
 

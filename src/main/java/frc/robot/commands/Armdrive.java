@@ -36,7 +36,7 @@ addRequirements(m_ArmSubsystem);
     //drIve.tankdrive(dubble leftspeed,dubble rightspeed); name it Defaltdrivecammand
     
 m_ArmSubsystem.Arm_Speed(m_Speed_Axis.getAsDouble()*-1);
-System.out.println(m_Speed_Axis.getAsDouble());
+System.out.println(m_ArmSubsystem.getAbsoluteEncoderCounts());
   }
 
   // Called once the command ends or is interrupted.
