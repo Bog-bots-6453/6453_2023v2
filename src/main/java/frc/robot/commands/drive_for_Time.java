@@ -12,7 +12,7 @@ import frc.robot.subsystems.DriveTrain;
 
 
 
-public class autobackup_for_Time extends CommandBase {
+public class drive_for_Time extends CommandBase {
 
   private final Timer m_time = new Timer();
   private final double m_seconds;
@@ -20,7 +20,7 @@ private final DriveTrain m_DriveTrain;
 private final double xSpeed;
 private final double zRotation;
   /** Creates a new autobackup. */
-  public autobackup_for_Time(DriveTrain DriveTrain, double Speed , Double Rotate, double TimeSeconds) {
+  public drive_for_Time(DriveTrain DriveTrain, double Speed , Double Rotate, double TimeSeconds) {
 this.m_seconds = TimeSeconds;
 this.xSpeed = Speed;
 this.zRotation = Rotate;
