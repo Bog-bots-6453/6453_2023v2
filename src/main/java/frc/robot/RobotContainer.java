@@ -18,6 +18,8 @@ import frc.robot.subsystems.airmodsubsystem;
 import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
 import frc.robot.commands.Defaltdrivecammand;
+import frc.robot.commands.auto.Claw_Open;
+import frc.robot.commands.auto.drive_for_Time;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intakesubsystem;
@@ -26,7 +28,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.auto;
+
 
 
 
@@ -199,8 +201,8 @@ private Command Backup_For_Time_Default(){
 
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
     new drive_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
-    new drive_for_Time(Drive, 0.0, .25, 1) // rotate at .25 speed for 1 second
-    
+    new drive_for_Time(Drive, 0.0, .25, 1), // rotate at .25 speed for 1 second
+    new Claw_Open(air, false)
   );
 }
 
