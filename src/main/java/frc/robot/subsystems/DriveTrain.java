@@ -47,6 +47,10 @@ drive.setSafetyEnabled(false);
     drive.tankDrive(left, right);
 }
 
+public void Drive_Arcade_Drive(double xSpeed,double zRotate){
+  drive.arcadeDrive(xSpeed , zRotate);
+}
+
 public void stop(){
   drive.tankDrive(0,  0);
 }
