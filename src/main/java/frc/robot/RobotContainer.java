@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import java.sql.Time;
+
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -18,8 +20,10 @@ import frc.robot.subsystems.airmodsubsystem;
 import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
 import frc.robot.commands.Defaltdrivecammand;
+import frc.robot.commands.auto.Arm_Up;
 import frc.robot.commands.auto.Claw_Open;
 import frc.robot.commands.auto.Pivot_Forward;
+import frc.robot.commands.auto.Vertical_Up;
 import frc.robot.commands.auto.drive_for_Time;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
@@ -27,6 +31,7 @@ import frc.robot.subsystems.Intakesubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -201,24 +206,68 @@ else{return false;}
 private Command Backup_For_Time_Default(){
 
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
-    new drive_for_Time( Drive, -0.5, -0.5 , 3.0), // Drive at -.5 speed, zero rotate, for 2 Seconds
-    new Claw_Open(air, true),
-    new Pivot_Forward(air, true)
+  new Claw_Open(air, false),
+  new WaitCommand(0.5),
+  new Vertical_Up(air, true),
+  new WaitCommand(1),
+  new Arm_Up(air, true),
+  new WaitCommand(1),
+  new drive_for_Time(Drive, 0.5, -0.5, 0.5),
+  new WaitCommand(1),
+  new Vertical_Up(air, false),
+  new WaitCommand(0.5),
+  new Claw_Open(air, true),
+  new WaitCommand(1),
+  new Arm_Up(air, false),
+  new drive_for_Time( Drive, -0.6, 0.6 , 4.75),
+  new Claw_Open(air, false)
   );
 }
 
 
 
 private Command auto_2(){
-  return null; // replace null with // new SequentialCommandGroup(    );
+
+  return new SequentialCommandGroup(
+  new Claw_Open(air, false),
+  new WaitCommand(0.6),
+  new Vertical_Up(air, true),
+  new WaitCommand(1),
+  new Arm_Up(air, true),
+  new WaitCommand(1),
+  new drive_for_Time(Drive, 0.5, -0.5, 0.5),
+  new WaitCommand(1),
+  new Vertical_Up(air, false),
+  new WaitCommand(0.5),
+  new Claw_Open(air, true),
+  new WaitCommand(1),
+  new drive_for_Time(Drive, -0.4, 0.4, 1.5),
+  new Arm_Up(air, false),
+  new Claw_Open(air, false)
+  ); 
 }
 
 
 
 private Command auto_3(){
-  return null; // replace null with // new SequentialCommandGroup(    );
+  return new SequentialCommandGroup(
+    new Claw_Open(air, false),
+    new WaitCommand(0.5),
+    new Vertical_Up(air, true),
+    new WaitCommand(1),
+    new Arm_Up(air, true),
+    new WaitCommand(1),
+    new drive_for_Time(Drive, 0.5, -0.5, 0.5),
+    new WaitCommand(1),
+    new Vertical_Up(air, false),
+    new WaitCommand(0.5),
+    new Claw_Open(air, true),
+    new WaitCommand(1),
+    new Arm_Up(air, false),
+    new drive_for_Time( Drive, -0.6, 0.6 , 6.5),
+    new Claw_Open(air, false)
+  ); 
 }
-
 
   public Command getAutonomousCommand() {
     m_autoSelected = autoChooser.getSelected();
