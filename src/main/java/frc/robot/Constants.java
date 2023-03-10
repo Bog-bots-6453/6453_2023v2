@@ -22,8 +22,23 @@ public final static double Drive_Speed_Max = 1.0;
 
 public final static int Intake_Right_ID = 40;
 public final static int Intake_Left_ID = 41;
-public final static double Intake_speed_In = 1.0; 
-public final static double Intake_speed_out = -1.0;
+public final static double Intake_speed_Right = 0.7; 
+public final static double Intake_speed_Left = -0.7;
+
+
+
+public final static int Intake_Rightstop_ID = 40;
+public final static int Intake_Leftstop_ID = 41;
+public final static double Intake_speed_Rightstop = 0.0; 
+public final static double Intake_speed_Leftstop = -0.0;
+
+
+
+
+
+
+
+
 
 public final static int Spark_Arm_1_ID = 50;
 public final static int Spark_Arm_2_ID = 51;

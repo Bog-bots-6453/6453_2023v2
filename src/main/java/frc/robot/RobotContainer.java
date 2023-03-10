@@ -82,12 +82,12 @@ new JoystickButton(Rightstick2,1)
 ));
 
 
-new JoystickButton(Leftstick, 2)
+new JoystickButton(Rightstick2, 4)
 .onTrue(new InstantCommand(
   () -> air.pivot_open()
 ));
 
-new JoystickButton(Leftstick, 1)
+new JoystickButton(Rightstick2, 3)
 .onTrue(new InstantCommand(
   () -> air.pivot_close()
 ));
@@ -105,23 +105,37 @@ new JoystickButton(Rightstick2, 11)
 ));
 
 
-new JoystickButton(Leftstick, 3)
+new JoystickButton(Leftstick, 1)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_In()
 ));
 
-new JoystickButton(Rightstick, 4)
+new JoystickButton(Rightstick, 1)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_out()
 ));
 
 
-new JoystickButton(Rightstick, 11)
+
+new JoystickButton(Rightstick, 2)
+.onTrue(new InstantCommand(
+  () -> m_Intake.Intake_stop()
+));
+
+
+
+
+
+
+
+
+
+new JoystickButton(Rightstick, 3)
 .onTrue(new InstantCommand(
   () -> air.armtoob_up()
 ));
 
-new JoystickButton(Rightstick, 12)
+new JoystickButton(Rightstick, 4)
 .onTrue(new InstantCommand(
   () -> air.armtoob_down()
 ));

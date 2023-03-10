@@ -35,12 +35,21 @@ private final VictorSPX Intake_Left;
 
 public void Intake_In(){
 
-Intake_Right.set(ControlMode.PercentOutput,Constants.Intake_speed_In);
-Intake_Left.set(ControlMode.PercentOutput,Constants.Intake_speed_In*-1);
+Intake_Right.set(ControlMode.PercentOutput,Constants.Intake_speed_Right);
+Intake_Left.set(ControlMode.PercentOutput,Constants.Intake_speed_Right*-1);
+
 }
 
 public void Intake_out(){
-  Intake_Right.set(ControlMode.PercentOutput,Constants.Intake_speed_out);
-  Intake_Left.set(ControlMode.PercentOutput,Constants.Intake_speed_out*-1);
+  Intake_Right.set(ControlMode.PercentOutput,Constants.Intake_speed_Left);
+  Intake_Left.set(ControlMode.PercentOutput,Constants.Intake_speed_Left*-1);
+
+}
+
+public void Intake_stop(){
+  Intake_Right.set(ControlMode.PercentOutput,Constants.Intake_speed_Right*0);
+  Intake_Left.set(ControlMode.PercentOutput,Constants.Intake_speed_Left*0);
+
+
 }
 }
