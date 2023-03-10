@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.airmodsubsystem;
 import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
-import frc.robot.commands.Claw_Open;
+import frc.robot.commands.auto.Claw_Open;
 import frc.robot.commands.Defaltdrivecammand;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.drive_for_Time;
+import frc.robot.commands.auto.drive_for_Time;
 
 
 
