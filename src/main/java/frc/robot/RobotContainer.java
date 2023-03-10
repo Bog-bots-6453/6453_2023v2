@@ -7,6 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 // import frc.robot.subsystems.ArmSubsystem;
 
@@ -19,8 +22,10 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intakesubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.autobackup_for_Time;
 
 
 
@@ -44,9 +49,13 @@ private final ArmSubsystem Arm = new ArmSubsystem();
 private final airmodsubsystem air = new airmodsubsystem();
 private final Intakesubsystem m_Intake = new Intakesubsystem();
 
+SendableChooser<Command> autoChooser = new SendableChooser<>();
+
+private Command m_autoSelected;
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-
+    ShuffleboardTab autoTab = Shuffleboard.getTab("Autonomous");
  air.start();
 
 Drive.setDefaultCommand(new Defaltdrivecammand(
@@ -61,6 +70,13 @@ Arm.setDefaultCommand(new Armdrive( Arm,
     // Configure the button bindings
     configureButtonBindings();
 
+
+
+    autoChooser.setDefaultOption("Backup_For_Time_Default()", Backup_For_Time_Default());
+          autoChooser.addOption("auto_2", auto_2());
+          autoChooser.addOption("auto_3", auto_3());
+
+          autoTab.add(autoChooser);
 
     
   }
@@ -176,8 +192,35 @@ else{return false;}
    *
    * @return the command to run in autonomous
    */
+
+private Command Backup_For_Time_Default(){
+
+  return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
+    new autobackup_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
+    new autobackup_for_Time(Drive, 0.0, .25, 1) // rotate at .25 speed for 1 second
+
+  );
+}
+
+
+
+private Command auto_2(){
+  return null; // replace null with // new SequentialCommandGroup(    );
+}
+
+
+
+private Command auto_3(){
+  return null; // replace null with // new SequentialCommandGroup(    );
+}
+
+
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return null;
+    m_autoSelected = autoChooser.getSelected();
+    
+    System.out.println("Auto selected: " + m_autoSelected);
+System.out.println("auto Run");
+
+return m_autoSelected;
   }
 }
