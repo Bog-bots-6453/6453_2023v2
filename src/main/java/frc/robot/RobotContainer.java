@@ -19,6 +19,7 @@ import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
 import frc.robot.commands.Defaltdrivecammand;
 import frc.robot.commands.auto.Claw_Open;
+import frc.robot.commands.auto.Pivot_Forward;
 import frc.robot.commands.auto.drive_for_Time;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
@@ -200,9 +201,9 @@ else{return false;}
 private Command Backup_For_Time_Default(){
 
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
-    new drive_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
-    new drive_for_Time(Drive, 0.0, .25, 1), // rotate at .25 speed for 1 second
-    new Claw_Open(air, false)
+    new drive_for_Time( Drive, -1, 0.0 , 3), // Drive at -.5 speed, zero rotate, for 2 Seconds
+    new Claw_Open(air, true),
+    new Pivot_Forward(air, true)
   );
 }
 
