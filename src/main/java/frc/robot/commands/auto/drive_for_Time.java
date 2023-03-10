@@ -40,7 +40,7 @@ this.m_DriveTrain = DriveTrain;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_DriveTrain.Drive_Arcade_Drive(xSpeed, zRotation);
+    m_DriveTrain.drive(xSpeed, zRotation);
   }
 
   // Called once the command ends or is interrupted.

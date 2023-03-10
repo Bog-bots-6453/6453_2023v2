@@ -201,7 +201,7 @@ else{return false;}
 private Command Backup_For_Time_Default(){
 
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
-    new drive_for_Time( Drive, -1, 0.0 , 3), // Drive at -.5 speed, zero rotate, for 2 Seconds
+    new drive_for_Time( Drive, -0.5, -0.5 , 3.0), // Drive at -.5 speed, zero rotate, for 2 Seconds
     new Claw_Open(air, true),
     new Pivot_Forward(air, true)
   );
