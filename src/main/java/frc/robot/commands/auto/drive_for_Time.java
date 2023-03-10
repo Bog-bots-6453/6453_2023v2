@@ -26,6 +26,7 @@ this.xSpeed = Speed;
 this.zRotation = Rotate;
 this.m_DriveTrain = DriveTrain;
 
+addRequirements(m_DriveTrain);
    
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -40,6 +41,7 @@ this.m_DriveTrain = DriveTrain;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
     m_DriveTrain.drive(xSpeed, zRotation);
   }
 
