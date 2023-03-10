@@ -60,6 +60,9 @@ Arm.setDefaultCommand(new Armdrive( Arm,
 
     // Configure the button bindings
     configureButtonBindings();
+
+
+    
   }
 
   /**
@@ -107,13 +110,20 @@ new JoystickButton(Rightstick2, 11)
 
 new JoystickButton(Leftstick, 1)
 .onTrue(new InstantCommand(
-  () -> m_Intake.Intake_In()
-));
+ () -> m_Intake.Intake_In()
+  
+
+))
+.onFalse(new InstantCommand(
+() -> m_Intake.Intake_stop()) // added to try to stop motors when released
+);
 
 new JoystickButton(Rightstick, 1)
 .onTrue(new InstantCommand(
   () -> m_Intake.Intake_out()
-));
+))
+.onFalse(new InstantCommand(()-> m_Intake.Intake_stop()) // added to try to stop motors when released
+);
 
 
 
