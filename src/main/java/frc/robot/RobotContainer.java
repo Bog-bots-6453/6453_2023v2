@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -49,6 +50,7 @@ private final ArmSubsystem Arm = new ArmSubsystem();
 private final airmodsubsystem air = new airmodsubsystem();
 private final Intakesubsystem m_Intake = new Intakesubsystem();
 
+
 SendableChooser<Command> autoChooser = new SendableChooser<>();
 
 private Command m_autoSelected;
@@ -70,7 +72,7 @@ Arm.setDefaultCommand(new Armdrive( Arm,
     // Configure the button bindings
     configureButtonBindings();
 
-
+CameraServer.startAutomaticCapture();
 
     autoChooser.setDefaultOption("Backup_For_Time_Default()", Backup_For_Time_Default());
           autoChooser.addOption("auto_2", auto_2());
