@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.autobackup_for_Time;
+import frc.robot.commands.drive_for_Time;
 
 
 
@@ -198,9 +198,9 @@ else{return false;}
 private Command Backup_For_Time_Default(){
 
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
-    new autobackup_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
-    new autobackup_for_Time(Drive, 0.0, .25, 1) // rotate at .25 speed for 1 second
-
+    new drive_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
+    new drive_for_Time(Drive, 0.0, .25, 1), // rotate at .25 speed for 1 second
+    new drive_for_Time(Drive, 0.0, .25, 1)
   );
 }
 
