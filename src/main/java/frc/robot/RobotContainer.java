@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.airmodsubsystem;
 import frc.robot.commands.Arm_PIDCommand;
 import frc.robot.commands.Armdrive;
+import frc.robot.commands.Claw_Open;
 import frc.robot.commands.Defaltdrivecammand;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveTrain;
@@ -200,7 +201,8 @@ private Command Backup_For_Time_Default(){
   return new SequentialCommandGroup( // every command line below gets a "," except the last commnand  -- last line is a ");"
     new drive_for_Time( Drive, -.5, 0.0 , 2), // Drive at -.5 speed, zero rotate, for 2 Seconds
     new drive_for_Time(Drive, 0.0, .25, 1), // rotate at .25 speed for 1 second
-    new drive_for_Time(Drive, 0.0, .25, 1)
+    new drive_for_Time(Drive, 0.0, .25, 1),
+    new Claw_Open(air, true)
   );
 }
 
